@@ -136,7 +136,7 @@ const About = () => {
                 color: '#111827'
               }}
             >
-              5+
+              12+
             </div>
             <h4 
               className="text-xl font-semibold mb-2"
@@ -165,7 +165,7 @@ const About = () => {
                 color: '#111827'
               }}
             >
-              50+
+              +100
             </div>
             <h4 
               className="text-xl font-semibold mb-2"
