@@ -127,7 +127,7 @@ const About = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid md:grid-cols-3 gap-12 text-center">
+        <div className="grid md:grid-cols-2 gap-12 text-center max-w-4xl mx-auto">
           <div>
             <div 
               className="text-5xl font-bold mb-4"
@@ -183,35 +183,6 @@ const About = () => {
               }}
             >
               MVPs, sistemas e treinamentos realizados
-            </p>
-          </div>
-          
-          <div>
-            <div 
-              className="text-5xl font-bold mb-4"
-              style={{ 
-                fontFamily: 'Gilda Display, serif',
-                color: '#111827'
-              }}
-            >
-              98%
-            </div>
-            <h4 
-              className="text-xl font-semibold mb-2"
-              style={{ 
-                fontFamily: 'Nunito Sans, sans-serif',
-                color: '#111827'
-              }}
-            >
-              Satisfação
-            </h4>
-            <p 
-              style={{ 
-                fontFamily: 'Nunito Sans, sans-serif',
-                color: '#6B7280'
-              }}
-            >
-              Clientes satisfeitos com nossos serviços
             </p>
           </div>
         </div>
