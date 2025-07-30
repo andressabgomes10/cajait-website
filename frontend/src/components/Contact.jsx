@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Clock, Send, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, Clock, Send, Linkedin, Instagram, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
 import { contactInfo, socialLinks } from '../mock';
 
 const Contact = () => {
@@ -45,29 +45,34 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="section bg-white/50 backdrop-blur-sm">
-      <div className="section-content">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Vamos conversar?
+    <section id="contato" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-32 lg:py-40 text-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-yellow-400/20 px-4 py-2 rounded-full text-sm font-semibold text-yellow-400 mb-8">
+            <Send size={16} />
+            Entre em Contato
+          </div>
+          
+          <h2 className="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tight">
+            Contact
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Estamos prontos para transformar sua ideia em realidade. Entre em contato 
-            e vamos construir algo incrível juntos.
+          
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-medium">
+            Pronto para transformar sua ideia em realidade? Vamos construir algo incrível juntos.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="card">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 font-serif">
+          <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/10">
+            <h3 className="text-3xl font-bold text-white mb-8">
               Envie sua mensagem
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-3">
                     Nome *
                   </label>
                   <input
@@ -77,13 +82,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
                     placeholder="Seu nome completo"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-3">
                     Email *
                   </label>
                   <input
@@ -93,7 +98,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -101,7 +106,7 @@ const Contact = () => {
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="company" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="company" className="block text-sm font-semibold text-gray-300 mb-3">
                     Empresa
                   </label>
                   <input
@@ -110,13 +115,13 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
                     placeholder="Nome da sua empresa"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="service" className="block text-sm font-semibold text-gray-300 mb-3">
                     Serviço de interesse
                   </label>
                   <select
@@ -124,20 +129,20 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white"
                   >
-                    <option value="">Selecione um serviço</option>
-                    <option value="mvp">MVP Rápido</option>
-                    <option value="software">Software Personalizado</option>
-                    <option value="gestao">Gestão de Produtos Digitais</option>
-                    <option value="treinamento">Treinamentos Práticos</option>
-                    <option value="consultoria">Consultoria</option>
+                    <option value="" className="bg-gray-800">Selecione um serviço</option>
+                    <option value="mvp" className="bg-gray-800">MVP Rápido</option>
+                    <option value="software" className="bg-gray-800">Software Personalizado</option>
+                    <option value="gestao" className="bg-gray-800">Gestão de Produtos Digitais</option>
+                    <option value="treinamento" className="bg-gray-800">Treinamentos Práticos</option>
+                    <option value="consultoria" className="bg-gray-800">Consultoria</option>
                   </select>
                 </div>
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-3">
                   Mensagem *
                 </label>
                 <textarea
@@ -147,7 +152,7 @@ const Contact = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 resize-none text-white placeholder-gray-400"
                   placeholder="Conte-nos sobre seu projeto ou necessidade..."
                 />
               </div>
@@ -155,20 +160,22 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn-primary w-full justify-center py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-yellow-400 text-gray-900 py-5 rounded-2xl font-bold text-lg hover:bg-yellow-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 hover:scale-[1.02] shadow-lg"
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
                 <Send size={20} />
               </button>
               
               {submitStatus === 'success' && (
-                <div className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                <div className="flex items-center gap-3 p-4 bg-green-500/20 border border-green-500/30 text-green-400 rounded-2xl">
+                  <CheckCircle size={20} />
                   Mensagem enviada com sucesso! Entraremos em contato em breve.
                 </div>
               )}
               
               {submitStatus === 'error' && (
-                <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                <div className="flex items-center gap-3 p-4 bg-red-500/20 border border-red-500/30 text-red-400 rounded-2xl">
+                  <AlertCircle size={20} />
                   Erro ao enviar mensagem. Tente novamente ou entre em contato direto.
                 </div>
               )}
@@ -177,56 +184,66 @@ const Contact = () => {
           
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="card-accent">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-serif">
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/10">
+              <h3 className="text-3xl font-bold text-white mb-8">
                 Outras formas de contato
               </h3>
               
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-yellow-600 rounded-lg">
-                    <Mail size={24} className="text-white" />
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-yellow-400 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <Mail size={24} className="text-gray-900" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-700">{contactInfo.email}</p>
+                    <h4 className="font-bold text-white text-lg mb-2">Email</h4>
+                    <p className="text-gray-300 text-lg">{contactInfo.email}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gray-800 rounded-lg">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <Phone size={24} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Telefone</h4>
-                    <p className="text-gray-700">{contactInfo.phone}</p>
+                    <h4 className="font-bold text-white text-lg mb-2">Telefone</h4>
+                    <p className="text-gray-300 text-lg">{contactInfo.phone}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-yellow-400 rounded-lg">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <Clock size={24} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Horário de atendimento</h4>
-                    <p className="text-gray-700">{contactInfo.businessHours}</p>
+                    <h4 className="font-bold text-white text-lg mb-2">Horário</h4>
+                    <p className="text-gray-300 text-lg">{contactInfo.businessHours}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <MapPin size={24} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-lg mb-2">Localização</h4>
+                    <p className="text-gray-300 text-lg">Brasil - Atendimento remoto</p>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Social Links */}
-            <div className="card">
-              <h4 className="text-xl font-bold text-gray-900 mb-4 font-serif">
+            <div className="bg-gradient-to-r from-yellow-400/20 to-yellow-500/20 rounded-3xl p-10 border border-yellow-400/30">
+              <h4 className="text-2xl font-bold text-white mb-6">
                 Siga-nos nas redes sociais
               </h4>
               
-              <div className="flex gap-4">
+              <div className="flex gap-4 mb-6">
                 <a
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                  className="w-12 h-12 bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
                 >
                   <Linkedin size={24} className="text-white" />
                 </a>
@@ -235,21 +252,14 @@ const Contact = () => {
                   href={socialLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-pink-600 rounded-lg hover:bg-pink-700 transition-colors duration-200"
+                  className="w-12 h-12 bg-pink-600 rounded-xl hover:bg-pink-700 transition-colors duration-200 flex items-center justify-center"
                 >
                   <Instagram size={24} className="text-white" />
                 </a>
               </div>
-            </div>
-            
-            {/* CTA Box */}
-            <div className="bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-2xl p-6 border border-yellow-300">
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
-                Resposta rápida garantida
-              </h4>
-              <p className="text-gray-700">
-                Respondemos todas as mensagens em até 24 horas úteis. 
-                Sua ideia não pode esperar!
+              
+              <p className="text-yellow-200 font-medium">
+                Resposta garantida em até 24 horas úteis
               </p>
             </div>
           </div>
