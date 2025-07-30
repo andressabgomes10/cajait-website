@@ -190,7 +190,7 @@ const Services = () => {
                 color: '#6B7280'
               }}
             >
-              Oferecemos soluções digitais personalizadas que atendem às necessidades específicas. Nossos MVPs, entregues que maximizam o potencial de crescimento do seu negócio.
+              Oferecemos soluções digitais personalizadas que atendem às necessidades específicas. Nossos MVPs são entregues com agilidade e qualidade, maximizando o potencial de crescimento do seu negócio.
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
