@@ -38,7 +38,7 @@ const Hero = () => {
             color: '#3E2F08'
           }}
         >
-          Na Cajá, oferecemos soluções digitais personalizadas que atendem às necessidades do seu negócio com agilidade, personalização e inteligência.
+          Transforme ideias em produtos digitais únicos: da concepção ao lançamento, unindo a agilidade da inovação tecnológica ao cuidado artesanal que só a Cajá oferece.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
