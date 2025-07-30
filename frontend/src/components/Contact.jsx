@@ -233,43 +233,6 @@ const Contact = () => {
             )}
           </form>
         </div>
-        
-        {/* Social Links - Centered */}
-        <div className="text-center mt-12">
-          <p 
-            className="text-gray-300 mb-6"
-            style={{ fontFamily: 'Nunito Sans, sans-serif' }}
-          >
-            Ou nos siga nas redes sociais
-          </p>
-          
-          <div className="flex justify-center gap-4">
-            <a
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
-            >
-              <Linkedin size={24} className="text-white" />
-            </a>
-            
-            <a
-              href={socialLinks.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 bg-pink-600 rounded-xl hover:bg-pink-700 transition-colors duration-200 flex items-center justify-center"
-            >
-              <Instagram size={24} className="text-white" />
-            </a>
-          </div>
-          
-          <p 
-            className="text-gray-400 text-sm mt-6"
-            style={{ fontFamily: 'Nunito Sans, sans-serif' }}
-          >
-            Resposta garantida em até 24 horas úteis
-          </p>
-        </div>
       </div>
     </section>
   );
