@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Send, Linkedin, Instagram, CheckCircle, AlertCircle } from 'lucide-react';
 import { socialLinks } from '../mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -26,18 +30,23 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('');
 
-    // Mock form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        service: '',
-        message: ''
-      });
+      const response = await axios.post(`${API}/contact`, formData);
+      
+      if (response.data.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Error submitting contact form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -227,7 +236,7 @@ const Contact = () => {
               <div className="flex items-center gap-3 p-4 bg-red-500/20 border border-red-500/30 text-red-400 rounded-2xl">
                 <AlertCircle size={20} />
                 <span style={{ fontFamily: 'Nunito Sans, sans-serif' }}>
-                  Erro ao enviar mensagem. Tente novamente ou entre em contato direto.
+                  Erro ao enviar mensagem. Tente novamente ou entre em contato diretamente.
                 </span>
               </div>
             )}
