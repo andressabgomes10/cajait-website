@@ -34,21 +34,21 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="bg-gray-50 py-32 lg:py-40">
+    <section id="servicos" className="bg-gray-50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* First Section - Services Grid */}
-        <div className="grid md:grid-cols-3 gap-12 mb-32">
+        <div className="grid md:grid-cols-3 gap-12 mb-24">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             
             return (
               <div key={service.id} className="text-center">
-                <div className="w-16 h-16 mx-auto mb-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#F6D100' }}>
+                <div className="w-16 h-16 mx-auto mb-6 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#F6D100' }}>
                   <IconComponent size={32} style={{ color: '#3E2F08' }} />
                 </div>
                 
                 <h3 
-                  className="text-2xl font-normal mb-6 leading-tight"
+                  className="text-2xl font-normal mb-4 leading-tight"
                   style={{ 
                     fontFamily: 'Gilda Display, serif',
                     color: '#111827'
@@ -58,7 +58,7 @@ const Services = () => {
                 </h3>
                 
                 <p 
-                  className="text-lg leading-relaxed mb-8"
+                  className="text-lg leading-relaxed mb-6"
                   style={{ 
                     fontFamily: 'Nunito Sans, sans-serif',
                     color: '#6B7280'
@@ -67,12 +67,12 @@ const Services = () => {
                   {service.description}
                 </p>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2 mb-6">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center justify-center gap-3">
                       <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#F6D100' }}></div>
                       <span 
-                        className="text-gray-700"
+                        className="text-gray-700 text-sm"
                         style={{ fontFamily: 'Nunito Sans, sans-serif' }}
                       >
                         {feature}
@@ -98,9 +98,9 @@ const Services = () => {
         </div>
 
         {/* Second Section - Benefits */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <h2 
-            className="text-4xl lg:text-6xl font-normal mb-8 leading-tight"
+            className="text-4xl lg:text-5xl font-normal mb-6 leading-tight"
             style={{ 
               fontFamily: 'Gilda Display, serif',
               color: '#111827'
@@ -111,7 +111,7 @@ const Services = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 mb-32">
+        <div className="grid md:grid-cols-3 gap-12 mb-16">
           {[
             {
               icon: '🚀',
@@ -130,10 +130,10 @@ const Services = () => {
             }
           ].map((benefit, index) => (
             <div key={index} className="text-center">
-              <div className="text-4xl mb-6">{benefit.icon}</div>
+              <div className="text-4xl mb-4">{benefit.icon}</div>
               
               <h3 
-                className="text-xl font-normal mb-6 leading-tight"
+                className="text-xl font-normal mb-4 leading-tight"
                 style={{ 
                   fontFamily: 'Gilda Display, serif',
                   color: '#111827'
@@ -143,7 +143,7 @@ const Services = () => {
               </h3>
               
               <p 
-                className="text-lg leading-relaxed mb-8"
+                className="text-lg leading-relaxed mb-6"
                 style={{ 
                   fontFamily: 'Nunito Sans, sans-serif',
                   color: '#6B7280'
@@ -167,87 +167,15 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Third Section - Digital Solutions */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 
-              className="text-4xl lg:text-5xl font-normal mb-8 leading-tight"
-              style={{ 
-                fontFamily: 'Gilda Display, serif',
-                color: '#111827'
-              }}
-            >
-              Descubra como nossas
-              <span className="block">soluções digitais</span>
-              <span className="block">transformam seu negócio</span>
-              <span className="block">com agilidade.</span>
-            </h2>
-            
-            <p 
-              className="text-lg leading-relaxed mb-12"
-              style={{ 
-                fontFamily: 'Nunito Sans, sans-serif',
-                color: '#6B7280'
-              }}
-            >
-              Oferecemos soluções digitais personalizadas que atendem às necessidades específicas. Nossos MVPs são entregues com agilidade e qualidade, maximizando o potencial de crescimento do seu negócio.
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div>
-                <h4 
-                  className="text-lg font-semibold mb-4"
-                  style={{ 
-                    fontFamily: 'Nunito Sans, sans-serif',
-                    color: '#111827'
-                  }}
-                >
-                  Soluções Personalizadas
-                </h4>
-                <p 
-                  className="text-gray-600 leading-relaxed"
-                  style={{ fontFamily: 'Nunito Sans, sans-serif' }}
-                >
-                  Desenvolvemos sob medida para suas necessidades específicas, garantindo máxima eficiência e resultados.
-                </p>
-              </div>
-              
-              <div>
-                <h4 
-                  className="text-lg font-semibold mb-4"
-                  style={{ 
-                    fontFamily: 'Nunito Sans, sans-serif',
-                    color: '#111827'
-                  }}
-                >
-                  Treinamentos Práticos
-                </h4>
-                <p 
-                  className="text-gray-600 leading-relaxed"
-                  style={{ fontFamily: 'Nunito Sans, sans-serif' }}
-                >
-                  Capacitamos sua equipe com conhecimentos atuais e metodologias modernas para maximizar a produtividade.
-                </p>
-              </div>
-            </div>
-            
-            <button 
-              onClick={scrollToContact}
-              className="btn-gold text-lg px-8 py-4 rounded-xl"
-            >
-              Fale conosco
-              <ArrowRight size={20} />
-            </button>
-          </div>
-          
-          <div className="bg-gray-200 rounded-3xl aspect-video flex items-center justify-center">
-            <div className="text-gray-400 text-center">
-              <div className="w-24 h-24 bg-gray-300 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                <Monitor size={48} />
-              </div>
-              <p style={{ fontFamily: 'Nunito Sans, sans-serif' }}>Visualização do projeto</p>
-            </div>
-          </div>
+        {/* CTA Section */}
+        <div className="text-center">
+          <button 
+            onClick={scrollToContact}
+            className="btn-gold text-lg px-10 py-4 rounded-xl"
+          >
+            Fale conosco
+            <ArrowRight size={20} />
+          </button>
         </div>
       </div>
     </section>
