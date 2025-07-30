@@ -45,34 +45,42 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-32 lg:py-40 text-white">
+    <section id="contato" className="py-32 lg:py-40 text-white" style={{ backgroundColor: '#3E2F08' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-yellow-400/20 px-4 py-2 rounded-full text-sm font-semibold text-yellow-400 mb-8">
-            <Send size={16} />
-            Entre em Contato
-          </div>
-          
-          <h2 className="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tight">
-            Contact
+          <h2 
+            className="text-5xl lg:text-7xl font-normal mb-8 tracking-tight text-white"
+            style={{ fontFamily: 'Gilda Display, serif' }}
+          >
+            Vamos conversar?
           </h2>
           
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-medium">
+          <p 
+            className="text-xl max-w-3xl mx-auto font-medium text-gray-300"
+            style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+          >
             Pronto para transformar sua ideia em realidade? Vamos construir algo incrível juntos.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/10">
-            <h3 className="text-3xl font-bold text-white mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-10 border border-white/20">
+            <h3 
+              className="text-3xl font-normal text-white mb-8"
+              style={{ fontFamily: 'Gilda Display, serif' }}
+            >
               Envie sua mensagem
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-3">
+                  <label 
+                    htmlFor="name" 
+                    className="block text-sm font-semibold text-gray-300 mb-3"
+                    style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                  >
                     Nome *
                   </label>
                   <input
@@ -82,13 +90,21 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 transition-all duration-200 text-white placeholder-gray-400"
+                    style={{ 
+                      fontFamily: 'Nunito Sans, sans-serif',
+                      '--tw-ring-color': '#F6D100'
+                    }}
                     placeholder="Seu nome completo"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-3">
+                  <label 
+                    htmlFor="email" 
+                    className="block text-sm font-semibold text-gray-300 mb-3"
+                    style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                  >
                     Email *
                   </label>
                   <input
@@ -98,7 +114,11 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 transition-all duration-200 text-white placeholder-gray-400"
+                    style={{ 
+                      fontFamily: 'Nunito Sans, sans-serif',
+                      '--tw-ring-color': '#F6D100'
+                    }}
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -106,7 +126,11 @@ const Contact = () => {
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="company" className="block text-sm font-semibold text-gray-300 mb-3">
+                  <label 
+                    htmlFor="company" 
+                    className="block text-sm font-semibold text-gray-300 mb-3"
+                    style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                  >
                     Empresa
                   </label>
                   <input
@@ -115,13 +139,21 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 transition-all duration-200 text-white placeholder-gray-400"
+                    style={{ 
+                      fontFamily: 'Nunito Sans, sans-serif',
+                      '--tw-ring-color': '#F6D100'
+                    }}
                     placeholder="Nome da sua empresa"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-gray-300 mb-3">
+                  <label 
+                    htmlFor="service" 
+                    className="block text-sm font-semibold text-gray-300 mb-3"
+                    style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                  >
                     Serviço de interesse
                   </label>
                   <select
@@ -129,7 +161,11 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 text-white"
+                    className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 transition-all duration-200 text-white"
+                    style={{ 
+                      fontFamily: 'Nunito Sans, sans-serif',
+                      '--tw-ring-color': '#F6D100'
+                    }}
                   >
                     <option value="" className="bg-gray-800">Selecione um serviço</option>
                     <option value="mvp" className="bg-gray-800">MVP Rápido</option>
@@ -142,7 +178,11 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-3">
+                <label 
+                  htmlFor="message" 
+                  className="block text-sm font-semibold text-gray-300 mb-3"
+                  style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                >
                   Mensagem *
                 </label>
                 <textarea
@@ -152,7 +192,11 @@ const Contact = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 resize-none text-white placeholder-gray-400"
+                  className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:ring-2 transition-all duration-200 resize-none text-white placeholder-gray-400"
+                  style={{ 
+                    fontFamily: 'Nunito Sans, sans-serif',
+                    '--tw-ring-color': '#F6D100'
+                  }}
                   placeholder="Conte-nos sobre seu projeto ou necessidade..."
                 />
               </div>
@@ -160,7 +204,12 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-yellow-400 text-gray-900 py-5 rounded-2xl font-bold text-lg hover:bg-yellow-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 hover:scale-[1.02] shadow-lg"
+                className="w-full py-5 rounded-2xl font-bold text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 hover:scale-[1.02] shadow-lg"
+                style={{ 
+                  backgroundColor: '#F6D100',
+                  color: '#3E2F08',
+                  fontFamily: 'Nunito Sans, sans-serif'
+                }}
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
                 <Send size={20} />
@@ -169,14 +218,18 @@ const Contact = () => {
               {submitStatus === 'success' && (
                 <div className="flex items-center gap-3 p-4 bg-green-500/20 border border-green-500/30 text-green-400 rounded-2xl">
                   <CheckCircle size={20} />
-                  Mensagem enviada com sucesso! Entraremos em contato em breve.
+                  <span style={{ fontFamily: 'Nunito Sans, sans-serif' }}>
+                    Mensagem enviada com sucesso! Entraremos em contato em breve.
+                  </span>
                 </div>
               )}
               
               {submitStatus === 'error' && (
                 <div className="flex items-center gap-3 p-4 bg-red-500/20 border border-red-500/30 text-red-400 rounded-2xl">
                   <AlertCircle size={20} />
-                  Erro ao enviar mensagem. Tente novamente ou entre em contato direto.
+                  <span style={{ fontFamily: 'Nunito Sans, sans-serif' }}>
+                    Erro ao enviar mensagem. Tente novamente ou entre em contato direto.
+                  </span>
                 </div>
               )}
             </form>
@@ -184,19 +237,32 @@ const Contact = () => {
           
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/10">
-              <h3 className="text-3xl font-bold text-white mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-10 border border-white/20">
+              <h3 
+                className="text-3xl font-normal text-white mb-8"
+                style={{ fontFamily: 'Gilda Display, serif' }}
+              >
                 Outras formas de contato
               </h3>
               
               <div className="space-y-8">
                 <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 bg-yellow-400 rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <Mail size={24} className="text-gray-900" />
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F6D100' }}>
+                    <Mail size={24} style={{ color: '#3E2F08' }} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">Email</h4>
-                    <p className="text-gray-300 text-lg">{contactInfo.email}</p>
+                    <h4 
+                      className="font-bold text-white text-lg mb-2"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      Email
+                    </h4>
+                    <p 
+                      className="text-gray-300 text-lg"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      {contactInfo.email}
+                    </p>
                   </div>
                 </div>
                 
@@ -205,8 +271,18 @@ const Contact = () => {
                     <Phone size={24} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">Telefone</h4>
-                    <p className="text-gray-300 text-lg">{contactInfo.phone}</p>
+                    <h4 
+                      className="font-bold text-white text-lg mb-2"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      Telefone
+                    </h4>
+                    <p 
+                      className="text-gray-300 text-lg"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      {contactInfo.phone}
+                    </p>
                   </div>
                 </div>
                 
@@ -215,8 +291,18 @@ const Contact = () => {
                     <Clock size={24} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">Horário</h4>
-                    <p className="text-gray-300 text-lg">{contactInfo.businessHours}</p>
+                    <h4 
+                      className="font-bold text-white text-lg mb-2"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      Horário
+                    </h4>
+                    <p 
+                      className="text-gray-300 text-lg"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      {contactInfo.businessHours}
+                    </p>
                   </div>
                 </div>
                 
@@ -225,16 +311,32 @@ const Contact = () => {
                     <MapPin size={24} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">Localização</h4>
-                    <p className="text-gray-300 text-lg">Brasil - Atendimento remoto</p>
+                    <h4 
+                      className="font-bold text-white text-lg mb-2"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      Localização
+                    </h4>
+                    <p 
+                      className="text-gray-300 text-lg"
+                      style={{ fontFamily: 'Nunito Sans, sans-serif' }}
+                    >
+                      Brasil - Atendimento remoto
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Social Links */}
-            <div className="bg-gradient-to-r from-yellow-400/20 to-yellow-500/20 rounded-3xl p-10 border border-yellow-400/30">
-              <h4 className="text-2xl font-bold text-white mb-6">
+            <div className="rounded-3xl p-10 border" style={{ backgroundColor: '#F6D100', borderColor: '#F6D100' }}>
+              <h4 
+                className="text-2xl font-bold mb-6"
+                style={{ 
+                  fontFamily: 'Nunito Sans, sans-serif',
+                  color: '#3E2F08'
+                }}
+              >
                 Siga-nos nas redes sociais
               </h4>
               
@@ -258,7 +360,13 @@ const Contact = () => {
                 </a>
               </div>
               
-              <p className="text-yellow-200 font-medium">
+              <p 
+                className="font-medium"
+                style={{ 
+                  fontFamily: 'Nunito Sans, sans-serif',
+                  color: '#3E2F08'
+                }}
+              >
                 Resposta garantida em até 24 horas úteis
               </p>
             </div>
