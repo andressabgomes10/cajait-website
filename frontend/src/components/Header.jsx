@@ -13,55 +13,45 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="https://customer-assets.emergentagent.com/job_caja-tech/artifacts/qh084cg1_image.png" 
+              src="https://customer-assets.emergentagent.com/job_caja-tech/artifacts/0bnkll8q_image%20%281%29.png" 
               alt="Cajá" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-12">
             <button 
               onClick={() => scrollToSection('inicio')}
-              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 text-lg"
             >
-              Início
+              Home
             </button>
             <button 
               onClick={() => scrollToSection('servicos')}
-              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 text-lg"
             >
-              Serviços
+              Products
             </button>
             <button 
               onClick={() => scrollToSection('sobre')}
-              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 text-lg"
             >
-              Sobre
+              About
             </button>
             <button 
               onClick={() => scrollToSection('contato')}
-              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+              className="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 text-lg"
             >
-              Contato
+              Contact
             </button>
           </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <button 
-              onClick={() => scrollToSection('contato')}
-              className="btn-primary"
-            >
-              Fale Conosco
-            </button>
-          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -76,37 +66,31 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-            <div className="px-4 py-4 space-y-4">
+          <div className="md:hidden border-t border-gray-100">
+            <div className="px-4 py-6 space-y-4">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 py-2"
               >
-                Início
+                Home
               </button>
               <button 
                 onClick={() => scrollToSection('servicos')}
-                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 py-2"
               >
-                Serviços
+                Products
               </button>
               <button 
                 onClick={() => scrollToSection('sobre')}
-                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 py-2"
               >
-                Sobre
+                About
               </button>
               <button 
                 onClick={() => scrollToSection('contato')}
-                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200"
+                className="block w-full text-left text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200 py-2"
               >
-                Contato
-              </button>
-              <button 
-                onClick={() => scrollToSection('contato')}
-                className="btn-primary w-full justify-center mt-4"
-              >
-                Fale Conosco
+                Contact
               </button>
             </div>
           </div>

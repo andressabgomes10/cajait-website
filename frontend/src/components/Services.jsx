@@ -1,13 +1,6 @@
 import React from 'react';
-import { Rocket, Code, TrendingUp, Users, ArrowRight } from 'lucide-react';
+import { Monitor, Settings, Wifi } from 'lucide-react';
 import { services } from '../mock';
-
-const iconMap = {
-  rocket: Rocket,
-  code: Code,
-  'trending-up': TrendingUp,
-  users: Users
-};
 
 const Services = () => {
   const scrollToContact = () => {
@@ -17,80 +10,57 @@ const Services = () => {
     }
   };
 
+  const serviceIcons = [Monitor, Settings, Wifi];
+  const serviceNames = ['Product One', 'Product Two', 'Product Three'];
+
   return (
-    <section id="servicos" className="section bg-white/50 backdrop-blur-sm">
-      <div className="section-content">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Nossos Serviços
+    <section id="servicos" className="bg-white py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-8">
+            Products
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Desenvolvemos soluções digitais sob medida, combinando agilidade tecnológica 
-            com o cuidado artesanal em cada projeto.
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
-          {services.map((service, index) => {
-            const IconComponent = iconMap[service.icon];
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {services.slice(0, 3).map((service, index) => {
+            const IconComponent = serviceIcons[index];
+            const productName = serviceNames[index];
             
             return (
               <div 
                 key={service.id} 
-                className="card fade-in-up group cursor-pointer"
+                className={`rounded-3xl p-12 text-center transition-all duration-300 hover:scale-105 cursor-pointer ${
+                  index === 0 
+                    ? 'bg-yellow-400 text-gray-900' 
+                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                }`}
               >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="p-3 bg-yellow-100 rounded-lg group-hover:bg-yellow-200 transition-colors duration-300">
-                    <IconComponent size={32} className="text-yellow-700" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 font-serif">
-                      {service.title}
-                    </h3>
-                  </div>
+                <div className="flex justify-center mb-8">
+                  <IconComponent size={64} className={index === 0 ? 'text-gray-900' : 'text-gray-700'} />
                 </div>
                 
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <h3 className="text-2xl font-bold mb-6">
+                  {productName}
+                </h3>
+                
+                <p className={`text-lg leading-relaxed ${
+                  index === 0 ? 'text-gray-800' : 'text-gray-600'
+                }`}>
                   {service.description}
                 </p>
-                
-                <ul className="space-y-3 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button 
-                  onClick={scrollToContact}
-                  className="text-gray-900 font-semibold hover:text-yellow-700 transition-colors duration-200 flex items-center gap-2 group"
-                >
-                  Saiba mais
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
-                </button>
               </div>
             );
           })}
         </div>
 
-        <div className="text-center">
-          <div className="card-accent inline-block p-8 rounded-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 font-serif">
-              Pronto para começar seu projeto?
-            </h3>
-            <p className="text-gray-700 mb-6">
-              Vamos conversar sobre como podemos ajudar você a transformar suas ideias em realidade.
-            </p>
-            <button 
-              onClick={scrollToContact}
-              className="btn-primary"
-            >
-              Iniciar projeto
-              <ArrowRight size={20} />
-            </button>
-          </div>
+        <div className="text-center mt-20">
+          <button 
+            onClick={scrollToContact}
+            className="bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors duration-200"
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </section>
