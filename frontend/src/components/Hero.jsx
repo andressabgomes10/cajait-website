@@ -27,9 +27,8 @@ const Hero = () => {
             color: '#3E2F08'
           }}
         >
-          Entenda como nossos
-          <span className="block">serviços transformam</span>
-          <span className="block">ideias</span>
+          Cajá.
+          <span className="block">Tecnologia Artesanal.</span>
         </h1>
         
         <p 
