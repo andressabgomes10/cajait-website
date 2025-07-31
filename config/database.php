@@ -1,13 +1,13 @@
 <?php
 // Configuração do Banco de Dados - Hostinger
-// IMPORTANTE: Após criar o banco no Hostinger, atualize essas informações
+// Configurado automaticamente para sitecaja
 
 class Database {
-    // Configurações do banco - ALTERE APÓS CRIAR NO HOSTINGER
+    // Configurações do banco - Conectando com sitecaja
     private $host = 'localhost';
-    private $db_name = 'u921347543_cajait_db';  // Substitua pelo nome do seu banco
-    private $username = 'u921347543_cajait';     // Substitua pelo seu usuário MySQL
-    private $password = 'SuaSenhaAqui123!';      // Substitua pela sua senha MySQL
+    private $db_name = 'sitecaja';
+    private $username = 'andressa';
+    private $password = '-Aa200200229*';
     
     private $conn;
     
