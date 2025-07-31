@@ -1538,7 +1538,7 @@ p {
     transform: scale(1.1);
 }
 
-/* Mobile Responsiveness for Help Widget */
+/* Mobile Responsiveness for Help Widget - Fixed */
 @media (max-width: 768px) {
     .help-chat-widget {
         bottom: 20px;
@@ -1547,7 +1547,7 @@ p {
     
     .help-chat-trigger {
         padding: 14px 20px;
-        font-size: 16px;
+        gap: 10px;
     }
     
     .help-mascot {
@@ -1556,7 +1556,8 @@ p {
     }
     
     .mascot-icon {
-        font-size: 20px;
+        width: 24px;
+        height: 24px;
     }
     
     .help-text {
@@ -1566,6 +1567,22 @@ p {
     .help-chat-menu {
         width: 280px;
         bottom: 70px;
+        right: -10px;
+    }
+    
+    .help-menu-header {
+        padding: 20px;
+    }
+    
+    .help-option {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .help-option-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
     }
 }
 
@@ -1577,13 +1594,38 @@ p {
     
     .help-chat-trigger {
         padding: 12px 18px;
+        gap: 8px;
+    }
+    
+    .help-text {
         font-size: 15px;
     }
     
     .help-chat-menu {
         width: calc(100vw - 30px);
-        right: -200px;
-        left: 15px;
+        right: -230px;
+        bottom: 65px;
+    }
+    
+    .help-menu-header {
+        padding: 18px;
+    }
+    
+    .help-menu-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .help-option {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .help-option-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .help-option-content p {
+        font-size: 0.8rem;
     }
 }
 
