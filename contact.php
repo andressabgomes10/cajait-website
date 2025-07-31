@@ -98,7 +98,11 @@ $headers .= "X-Mailer: PHP/" . phpversion();
 $email_sent = false;
 
 // Modo demonstração para desenvolvimento (quando sendmail não está disponível)
-$is_demo_mode = !function_exists('mail') || strpos(php_uname('n'), 'localhost') !== false || $_SERVER['HTTP_HOST'] === 'localhost:8080';
+$is_demo_mode = !function_exists('mail') || 
+                strpos(php_uname('n'), 'localhost') !== false || 
+                $_SERVER['HTTP_HOST'] === 'localhost:8080' ||
+                strpos($_SERVER['HTTP_HOST'], 'preview.emergentagent.com') !== false ||
+                strpos($_SERVER['HTTP_HOST'], 'localhost') !== false;
 
 try {
     if ($is_demo_mode) {
