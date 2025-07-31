@@ -138,75 +138,100 @@ document.getElementById('contactForm').addEventListener('submit', async function
     `;
 });
 
-// Help Chat Widget Management
+// Help Chat Widget Management - Fixed Version
 document.addEventListener('DOMContentLoaded', function() {
+    const helpChatWidget = document.getElementById('helpChatWidget');
     const helpChatTrigger = document.getElementById('helpChatTrigger');
     const helpChatMenu = document.getElementById('helpChatMenu');
     const helpMenuClose = document.getElementById('helpMenuClose');
     let isMenuOpen = false;
     
-    // Toggle help menu
-    if (helpChatTrigger) {
-        helpChatTrigger.addEventListener('click', function() {
+    // Initialize widget
+    if (helpChatWidget && helpChatTrigger && helpChatMenu) {
+        console.log('Help widget initialized successfully');
+        
+        // Add loaded class for entrance animation
+        setTimeout(() => {
+            helpChatWidget.classList.add('loaded');
+        }, 2000);
+        
+        // Toggle help menu
+        helpChatTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             if (isMenuOpen) {
                 helpChatMenu.style.display = 'none';
+                helpChatMenu.classList.remove('show');
                 isMenuOpen = false;
             } else {
                 helpChatMenu.style.display = 'block';
+                helpChatMenu.classList.add('show');
                 isMenuOpen = true;
             }
         });
-    }
-    
-    // Close help menu
-    if (helpMenuClose) {
-        helpMenuClose.addEventListener('click', function() {
-            helpChatMenu.style.display = 'none';
-            isMenuOpen = false;
-        });
-    }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (helpChatTrigger && helpChatMenu && 
-            !helpChatTrigger.contains(event.target) && 
-            !helpChatMenu.contains(event.target)) {
-            helpChatMenu.style.display = 'none';
-            isMenuOpen = false;
-        }
-    });
-    
-    // Auto-hide when scrolling near contact section
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const contactSection = document.getElementById('contato');
-        const helpWidget = document.querySelector('.help-chat-widget');
         
-        if (contactSection && helpWidget) {
-            const contactPosition = contactSection.offsetTop;
-            const windowHeight = window.innerHeight;
-            
-            // Hide when near contact section to avoid overlap
-            if (scrollTop + windowHeight > contactPosition - 150) {
-                helpWidget.style.transform = 'translateY(100px)';
-                helpWidget.style.opacity = '0';
-                helpWidget.style.pointerEvents = 'none';
-            } else {
-                helpWidget.style.transform = 'translateY(0)';
-                helpWidget.style.opacity = '1';
-                helpWidget.style.pointerEvents = 'auto';
+        // Close help menu
+        if (helpMenuClose) {
+            helpMenuClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                helpChatMenu.style.display = 'none';
+                helpChatMenu.classList.remove('show');
+                isMenuOpen = false;
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (helpChatWidget && !helpChatWidget.contains(event.target)) {
+                helpChatMenu.style.display = 'none';
+                helpChatMenu.classList.remove('show');
+                isMenuOpen = false;
             }
+        });
+        
+        // Auto-hide when scrolling near contact section
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const contactSection = document.getElementById('contato');
+            
+            if (contactSection && helpChatWidget) {
+                const contactPosition = contactSection.offsetTop;
+                const windowHeight = window.innerHeight;
+                
+                // Hide when near contact section to avoid overlap
+                if (scrollTop + windowHeight > contactPosition - 150) {
+                    helpChatWidget.style.transform = 'translateY(100px)';
+                    helpChatWidget.style.opacity = '0';
+                    helpChatWidget.style.pointerEvents = 'none';
+                    if (isMenuOpen) {
+                        helpChatMenu.style.display = 'none';
+                        helpChatMenu.classList.remove('show');
+                        isMenuOpen = false;
+                    }
+                } else {
+                    if (helpChatWidget.classList.contains('loaded')) {
+                        helpChatWidget.style.transform = 'translateY(0)';
+                        helpChatWidget.style.opacity = '1';
+                        helpChatWidget.style.pointerEvents = 'auto';
+                    }
+                }
+            }
+        });
+        
+        // Handle contact form link click
+        const contactFormLink = helpChatMenu.querySelector('a[href="#contato"]');
+        if (contactFormLink) {
+            contactFormLink.addEventListener('click', function() {
+                helpChatMenu.style.display = 'none';
+                helpChatMenu.classList.remove('show');
+                isMenuOpen = false;
+            });
         }
-    });
-    
-    // Add entrance animation after page load
-    setTimeout(() => {
-        const helpWidget = document.querySelector('.help-chat-widget');
-        if (helpWidget) {
-            helpWidget.style.transform = 'translateY(0)';
-            helpWidget.style.opacity = '1';
-        }
-    }, 2000);
+    } else {
+        console.error('Help widget elements not found');
+    }
 });
 
 // WhatsApp Float Button Management (Legacy - keeping for compatibility)
