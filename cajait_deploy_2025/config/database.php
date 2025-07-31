@@ -7,7 +7,7 @@ class Database {
     private $host = 'localhost';
     private $db_name = 'u921347543_sitecaja';  // Nome completo do banco
     private $username = 'u921347543_sitecaja'; // Usuário igual ao nome do banco
-    private $password = '-Aa200200229*';       // Sua senha
+    private $password = 'SUA_SENHA_MYSQL_AQUI';       // ⚠️ SUBSTITUIR pela senha do MySQL
     
     private $conn;
     
