@@ -138,6 +138,50 @@ document.getElementById('contactForm').addEventListener('submit', async function
     `;
 });
 
+// WhatsApp Float Button Management
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappFloat = document.getElementById('whatsappFloat');
+    let isVisible = true;
+    
+    // Show/hide based on scroll position
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const contactSection = document.getElementById('contato');
+        
+        if (contactSection) {
+            const contactPosition = contactSection.offsetTop;
+            const windowHeight = window.innerHeight;
+            
+            // Hide when near contact section to avoid overlap
+            if (scrollTop + windowHeight > contactPosition - 100) {
+                if (isVisible) {
+                    whatsappFloat.style.transform = 'translateY(100px)';
+                    whatsappFloat.style.opacity = '0';
+                    isVisible = false;
+                }
+            } else {
+                if (!isVisible) {
+                    whatsappFloat.style.transform = 'translateY(0)';
+                    whatsappFloat.style.opacity = '1';
+                    isVisible = true;
+                }
+            }
+        }
+    });
+    
+    // Add click tracking
+    whatsappFloat.addEventListener('click', function() {
+        // Track WhatsApp button click (you can add analytics here)
+        console.log('WhatsApp button clicked');
+    });
+    
+    // Add entrance animation after page load
+    setTimeout(() => {
+        whatsappFloat.style.transform = 'translateY(0)';
+        whatsappFloat.style.opacity = '1';
+    }, 1500);
+});
+
 // Add scroll effect to header
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
