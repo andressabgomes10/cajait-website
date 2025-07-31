@@ -1,13 +1,13 @@
 <?php
 // Configuração do Banco de Dados - Hostinger
-// Configurado automaticamente para sitecaja
+// Configurado com as credenciais exatas do painel
 
 class Database {
-    // Configurações do banco - Conectando com sitecaja
+    // Configurações do banco - Credenciais do painel Hostinger
     private $host = 'localhost';
-    private $db_name = 'sitecaja';
-    private $username = 'andressa';
-    private $password = '-Aa200200229*';
+    private $db_name = 'u921347543_sitecaja';  // Nome completo do banco
+    private $username = 'u921347543_andressa'; // Usuário completo
+    private $password = '-Aa200200229*';       // Sua senha
     
     private $conn;
     
