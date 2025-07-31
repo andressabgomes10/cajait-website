@@ -1351,8 +1351,12 @@ p {
 }
 
 .mascot-icon {
-    font-size: 24px;
-    filter: grayscale(0);
+    width: 28px;
+    height: 28px;
+    background-image: url('https://customer-assets.emergentagent.com/job_caja-tech-debug/artifacts/49584vmu_i%CC%81cone%20fundo%20branco.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .help-text {
