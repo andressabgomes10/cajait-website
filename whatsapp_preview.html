@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREVIEW - Botões WhatsApp Cajá</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito Sans', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .preview-container {
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .preview-title {
+            font-size: 2.5rem;
+            color: #3E2F08;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .preview-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        .buttons-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .button-demo {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .button-demo h3 {
+            color: #3E2F08;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        /* WhatsApp Button Styles */
+        .whatsapp-float {
+            position: relative;
+            width: 300px;
+            height: 65px;
+            background: linear-gradient(135deg, #25D366, #1ea952);
+            color: white;
+            border-radius: 35px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+            background: linear-gradient(135deg, #1ea952, #25D366);
+            color: white;
+            text-decoration: none;
+        }
+
+        .whatsapp-float .whatsapp-icon {
+            width: 38px;
+            height: 38px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #25D366;
+            font-size: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-float span {
+            font-family: 'Gilda Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        @keyframes pulse {
+            0% { 
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.8);
+                transform: scale(1.02);
+            }
+            100% { 
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+                transform: scale(1);
+            }
+        }
+
+        /* WhatsApp Integrated Buttons */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #1ea952);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            background: linear-gradient(135deg, #1ea952, #25D366);
+            color: white;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn .whatsapp-icon-small {
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #25D366;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        
+        .integrated-container {
+            padding: 1.5rem;
+            background: rgba(37, 211, 102, 0.05);
+            border-radius: 15px;
+            border: 2px dashed rgba(37, 211, 102, 0.3);
+            margin-top: 1rem;
+        }
+        
+        .integrated-text {
+            color: #1ea952;
+            margin-bottom: 1.2rem;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .before-after {
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .before {
+            background: #ffe6e6;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .after {
+            background: #e6ffe6;
+            border: 2px solid #25D366;
+        }
+        
+        .before h4 {
+            color: #d63031;
+            margin-bottom: 1rem;
+        }
+        
+        .after h4 {
+            color: #00b894;
+            margin-bottom: 1rem;
+        }
+        
+        .old-button {
+            background: #ccc;
+            color: #666;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <h1 class="preview-title">🎯 PREVIEW - Botões WhatsApp Cajá</h1>
+        <p class="preview-subtitle">Veja como ficaram os botões melhorados!</p>
+        
+        <div class="buttons-showcase">
+            <div class="button-demo">
+                <h3>💬 Botão Flutuante (Canto da Tela)</h3>
+                <a href="#" class="whatsapp-float">
+                    <div class="whatsapp-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.384"/>
+                        </svg>
+                    </div>
+                    <span>💬 Vamos conversar?</span>
+                </a>
+            </div>
+            
+            <div class="button-demo">
+                <h3>🚀 Botão na Seção "Sobre"</h3>
+                <div class="integrated-container">
+                    <p class="integrated-text">💬 Vamos conversar sobre seu projeto?</p>
+                    <a href="#" class="whatsapp-btn">
+                        <div class="whatsapp-icon-small">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.384"/>
+                            </svg>
+                        </div>
+                        🚀 Entre em contato conosco
+                    </a>
+                </div>
+            </div>
+            
+            <div class="button-demo">
+                <h3>📱 Botão no Formulário</h3>
+                <div class="integrated-container">
+                    <p class="integrated-text">📱 Prefere conversar diretamente?</p>
+                    <a href="#" class="whatsapp-btn">
+                        <div class="whatsapp-icon-small">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.384"/>
+                            </svg>
+                        </div>
+                        💬 Conversar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <div class="before-after before">
+                <h4>❌ ANTES (Problema)</h4>
+                <p>Botão pequeno e sem formatação</p>
+                <br>
+                <a href="#" class="old-button">WhatsApp</a>
+            </div>
+            
+            <div class="before-after after">
+                <h4>✅ AGORA (Solucionado)</h4>
+                <p>Botões grandes, bonitos e chamativos!</p>
+                <br>
+                <a href="#" class="whatsapp-btn" style="font-size: 12px; padding: 8px 16px;">
+                    <div class="whatsapp-icon-small" style="width: 16px; height: 16px;">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.384"/>
+                        </svg>
+                    </div>
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #F6D100, #E6C200); border-radius: 15px; color: #3E2F08;">
+            <h3>🎉 RESULTADO FINAL</h3>
+            <p style="margin-top: 1rem; font-size: 1.1rem;">
+                <strong>Botões WhatsApp agora são grandes, chamativos e IMPOSSÍVEIS de ignorar!</strong><br>
+                300px x 65px • Verde WhatsApp oficial • Animações elegantes • 100% responsivo
+            </p>
+        </div>
+    </div>
+</body>
+</html>
