@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Widget Cajá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display:wght@400&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cajait_deploy_limpo/style.css">
+</head>
+<body>
+    <div style="height: 100vh; background: #f5f5f5; display: flex; align-items: center; justify-content: center;">
+        <h1 style="font-family: 'Gilda Display', serif; color: #3E2F08; font-size: 3rem;">Teste do Widget Cajá</h1>
+    </div>
+    
+    <!-- Help Chat Widget -->
+    <div class="help-chat-widget" id="helpChatWidget">
+        <div class="help-chat-trigger" id="helpChatTrigger">
+            <div class="help-mascot">
+                <div class="mascot-icon"></div>
+            </div>
+            <span class="help-text">Ajuda?</span>
+        </div>
+        
+        <div class="help-chat-menu" id="helpChatMenu">
+            <div class="help-menu-header">
+                <div class="help-mascot-large">
+                    <div class="mascot-icon-large"></div>
+                </div>
+                <h3>Como posso ajudar?</h3>
+                <p>Escolha uma das opções abaixo:</p>
+            </div>
+            
+            <div class="help-menu-options">
+                <a href="https://wa.me/5585992176713?text=Olá!%20Vim%20do%20site%20da%20Cajá%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" class="help-option">
+                    <div class="help-option-icon">💬</div>
+                    <div class="help-option-content">
+                        <h4>Conversar no WhatsApp</h4>
+                        <p>Fale diretamente conosco</p>
+                    </div>
+                </a>
+                
+                <a href="#contato" class="help-option">
+                    <div class="help-option-icon">📧</div>
+                    <div class="help-option-content">
+                        <h4>Enviar mensagem</h4>
+                        <p>Use nosso formulário de contato</p>
+                    </div>
+                </a>
+                
+                <a href="tel:+5585992176713" class="help-option">
+                    <div class="help-option-icon">📞</div>
+                    <div class="help-option-content">
+                        <h4>Ligar agora</h4>
+                        <p>(85) 99217-6713</p>
+                    </div>
+                </a>
+            </div>
+            
+            <button class="help-menu-close" id="helpMenuClose">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="cajait_deploy_limpo/script.js"></script>
+</body>
+</html>
