@@ -151,29 +151,6 @@ if ($_POST) {
             color: #666;
             font-size: 0.8rem;
         }
-        
-        .credentials-info {
-            background: #e7f3ff;
-            border: 1px solid #b8daff;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .credentials-info h4 {
-            color: #004085;
-            margin-bottom: 0.5rem;
-        }
-        
-        .credentials-info p {
-            color: #004085;
-            margin: 0.25rem 0;
-        }
-        
-        .credentials-info strong {
-            color: #002752;
-        }
     </style>
 </head>
 <body>
