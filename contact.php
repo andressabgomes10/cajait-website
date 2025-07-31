@@ -110,7 +110,7 @@ if ($email_sent) {
     
     echo json_encode([
         'success' => true, 
-        'message' => 'Mensagem enviada com sucesso! Entraremos em contato em breve.'
+        'message' => '🎉 Mensagem enviada com sucesso! Recebemos sua solicitação e nossa equipe entrará em contato em até 24 horas. Obrigado!'
     ]);
 } else {
     // Log do erro
@@ -119,7 +119,7 @@ if ($email_sent) {
     
     echo json_encode([
         'success' => false, 
-        'message' => 'Erro ao enviar email. Sua mensagem foi registrada, entraremos em contato em breve.'
+        'message' => '📧 Tivemos um problema técnico temporário, mas não se preocupe! Sua mensagem foi salva e entraremos em contato em breve. Você também pode nos escrever diretamente em andressa@cajait.com'
     ]);
 }
 ?>
