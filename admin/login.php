@@ -183,15 +183,6 @@ if ($_POST) {
             <p>Painel Administrativo</p>
         </div>
         
-        <div class="credentials-info">
-            <h4>🔑 Credenciais Padrão:</h4>
-            <p><strong>Usuário:</strong> admin</p>
-            <p><strong>Senha:</strong> cajait2025!</p>
-            <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">
-                (Altere essas credenciais no banco de dados após o primeiro acesso)
-            </p>
-        </div>
-        
         <?php if ($error_message): ?>
         <div class="error-message">
             <?= htmlspecialchars($error_message) ?>
