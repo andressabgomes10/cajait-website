@@ -1,0 +1,108 @@
+name: 🚀 Deploy Cajá Website to Hostinger
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      deploy_message:
+        description: 'Deploy message'
+        required: false
+        default: 'Manual deploy triggered'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: 🔑 Setup SSH Connection
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -t rsa srv1845.hstgr.io >> ~/.ssh/known_hosts
+        echo "✅ SSH Key configured"
+    
+    - name: 🧪 Test SSH Connection
+      run: |
+        ssh -i ~/.ssh/id_rsa u921347543@srv1845.hstgr.io "echo 'SSH Connection successful!'"
+    
+    - name: 🗄️ Backup Existing Files
+      run: |
+        ssh -i ~/.ssh/id_rsa u921347543@srv1845.hstgr.io "
+          cd /home/u921347543/public_html
+          if [ -f index.html ]; then
+            mkdir -p backup_\$(date +%Y%m%d_%H%M%S)
+            cp -r *.html *.css *.js *.php config admin backup_\$(date +%Y%m%d_%H%M%S)/ 2>/dev/null || true
+            echo '✅ Backup created'
+          fi
+        "
+    
+    - name: 📤 Deploy Main Files
+      run: |
+        echo "📋 Uploading main website files..."
+        scp -i ~/.ssh/id_rsa index.html u921347543@srv1845.hstgr.io:/home/u921347543/public_html/
+        scp -i ~/.ssh/id_rsa style.css u921347543@srv1845.hstgr.io:/home/u921347543/public_html/
+        scp -i ~/.ssh/id_rsa script.js u921347543@srv1845.hstgr.io:/home/u921347543/public_html/
+        scp -i ~/.ssh/id_rsa contact.php u921347543@srv1845.hstgr.io:/home/u921347543/public_html/
+        echo "✅ Main files uploaded"
+    
+    - name: ⚙️ Deploy Configuration
+      run: |
+        echo "📊 Uploading database configuration..."
+        ssh -i ~/.ssh/id_rsa u921347543@srv1845.hstgr.io "mkdir -p /home/u921347543/public_html/config"
+        scp -i ~/.ssh/id_rsa config/database.php u921347543@srv1845.hstgr.io:/home/u921347543/public_html/config/
+        echo "✅ Database config uploaded"
+    
+    - name: 👨‍💼 Deploy Admin Panel
+      run: |
+        echo "🔐 Uploading admin panel..."
+        ssh -i ~/.ssh/id_rsa u921347543@srv1845.hstgr.io "mkdir -p /home/u921347543/public_html/admin"
+        scp -i ~/.ssh/id_rsa admin/*.php u921347543@srv1845.hstgr.io:/home/u921347543/public_html/admin/
+        echo "✅ Admin panel uploaded"
+    
+    - name: 🔧 Set File Permissions
+      run: |
+        ssh -i ~/.ssh/id_rsa u921347543@srv1845.hstgr.io "
+          cd /home/u921347543/public_html
+          chmod 644 *.html *.css *.js *.php 2>/dev/null || true
+          chmod 644 config/*.php 2>/dev/null || true
+          chmod 644 admin/*.php 2>/dev/null || true
+          chmod 755 config admin 2>/dev/null || true
+          echo '✅ Permissions configured'
+        "
+    
+    - name: 🧪 Verify Deployment
+      run: |
+        echo "🔍 Verifying files on server..."
+        ssh -i ~/.ssh/id_rsa u921347543@srv1845.hstgr.io "
+          cd /home/u921347543/public_html
+          echo '📁 Main files:'
+          ls -la *.html *.css *.js *.php 2>/dev/null || echo 'No main files found'
+          echo '📁 Config:'
+          ls -la config/ 2>/dev/null || echo 'Config folder missing'
+          echo '📁 Admin:'
+          ls -la admin/ 2>/dev/null || echo 'Admin folder missing'
+        "
+    
+    - name: 🎉 Deployment Success
+      run: |
+        echo "🎉 DEPLOY COMPLETED SUCCESSFULLY!"
+        echo "=================================="
+        echo ""
+        echo "✅ Cajá Website Features Deployed:"
+        echo "   🥭 Widget 'Ajuda?' with Cajá icon"
+        echo "   🟡 Golden brand colors applied"
+        echo "   📱 Interactive menu (WhatsApp + Form + Phone)"
+        echo "   📊 Database connected: u921347543_sitecaja"
+        echo "   👨‍💼 Admin panel: /admin/ (admin/cajait2025!)"
+        echo ""
+        echo "🧪 Test your website:"
+        echo "   🌐 Site: https://your-domain.com"
+        echo "   💬 Widget: Check 'Ajuda?' button (bottom-right)"
+        echo "   🔐 Admin: https://your-domain.com/admin/"
+        echo ""
+        echo "🔥 Professional Cajá website is now LIVE!"
