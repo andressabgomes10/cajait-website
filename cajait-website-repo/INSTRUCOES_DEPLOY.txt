@@ -1,0 +1,21 @@
+🚀 DEPLOY CAJÁ - INSTRUÇÕES SIMPLES
+
+📋 PASSOS:
+1. Fazer upload de TODOS os arquivos para public_html/
+2. Editar config/database.php - linha 10 - colocar sua senha MySQL
+3. Testar: seu-dominio.com
+
+🔑 LOGIN ADMIN:
+- URL: seu-dominio.com/admin/
+- Usuário: admin
+- Senha: cajait2025!
+
+📞 WHATSAPP: +55 85 99217-6713
+📧 EMAIL: andressa@cajait.com
+
+✨ NOVIDADES:
+- Widget "Ajuda?" com ícone Cajá
+- Cores douradas 100% consistentes
+- Sistema completo funcionando
+
+⏱️ TEMPO: 5-10 minutos no ar!
