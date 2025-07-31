@@ -121,7 +121,7 @@ if ($email_sent) {
     
     echo json_encode([
         'success' => true, 
-        'message' => '🎉 Mensagem enviada com sucesso! Recebemos sua solicitação e nossa equipe entrará em contato em até 24 horas. Obrigado!'
+        'message' => '🎉 Perfeito! Sua mensagem foi enviada com sucesso! Nossa equipe da Cajá recebeu sua solicitação e entrará em contato em até 24 horas. Muito obrigado pelo interesse!'
     ]);
 } else {
     // Log do erro
@@ -130,7 +130,7 @@ if ($email_sent) {
     
     echo json_encode([
         'success' => false, 
-        'message' => '📧 Tivemos um problema técnico temporário, mas não se preocupe! Sua mensagem foi salva e entraremos em contato em breve. Você também pode nos escrever diretamente em andressa@cajait.com'
+        'message' => '💌 Ops! Algo deu errado com o envio automático, mas não se preocupe! Sua mensagem foi registrada e nossa equipe entrará em contato. Como alternativa, você pode nos escrever diretamente: andressa@cajait.com'
     ]);
 }
 ?>
