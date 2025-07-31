@@ -1246,20 +1246,20 @@ p {
     text-align: center;
     margin: 3rem 0;
     padding: 2.5rem;
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.08) 0%, rgba(37, 211, 102, 0.12) 100%);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.12) 100%);
     border-radius: 20px;
-    border: 2px solid rgba(37, 211, 102, 0.2);
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
     transition: all 0.3s ease;
 }
 
 .whatsapp-cta-box:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.15);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
 }
 
 .whatsapp-cta-title {
-    color: #1ea952;
+    color: #B8860B;
     margin-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 700;
@@ -1267,7 +1267,7 @@ p {
 }
 
 .whatsapp-cta-subtitle {
-    color: #059669;
+    color: #92592D;
     margin-bottom: 1.5rem;
     font-size: 1rem;
     font-weight: 500;
@@ -1278,14 +1278,14 @@ p {
     text-align: center;
     margin: 2rem 0;
     padding: 2rem;
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.06) 0%, rgba(37, 211, 102, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.06) 0%, rgba(255, 215, 0, 0.1) 100%);
     border-radius: 16px;
-    border: 2px solid rgba(37, 211, 102, 0.2);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.08);
+    border: 2px solid rgba(255, 215, 0, 0.25);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.12);
 }
 
 .whatsapp-alt-title {
-    color: #1ea952;
+    color: #B8860B;
     margin-bottom: 0.75rem;
     font-size: 1.125rem;
     font-weight: 700;
@@ -1293,7 +1293,7 @@ p {
 }
 
 .whatsapp-alt-subtitle {
-    color: #059669;
+    color: #92592D;
     margin-bottom: 1.25rem;
     font-size: 0.95rem;
     font-weight: 500;
