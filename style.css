@@ -1413,7 +1413,12 @@ p {
 }
 
 .mascot-icon-large {
-    font-size: 36px;
+    width: 42px;
+    height: 42px;
+    background-image: url('https://customer-assets.emergentagent.com/job_caja-tech-debug/artifacts/49584vmu_i%CC%81cone%20fundo%20branco.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .help-menu-header h3 {
