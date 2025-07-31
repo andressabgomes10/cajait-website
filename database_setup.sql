@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `usuarios_admin` (
 -- 3. Inserir usuário administrativo padrão
 -- Usuário: admin, Senha: cajait2025!
 INSERT INTO `usuarios_admin` (`username`, `password`, `nome_completo`, `email`) 
-VALUES ('admin', '$2y$10$6EKgAFZ9mDxUYqP7R1.iFe8F8Y7OoH3WGAjE6I8H9L3Z4Q2X5N6M7', 'Administrador Cajá', 'andressa@cajait.com')
+VALUES ('admin', '$2y$10$dFVgrdQjG2tCJlFg7h6kd.RVoZFCwF3k/c216JVxwuB/TFaTFeB8q', 'Administrador Cajá', 'andressa@cajait.com')
 ON DUPLICATE KEY UPDATE password = VALUES(password);
 
 -- 4. Tabela para estatísticas e métricas
