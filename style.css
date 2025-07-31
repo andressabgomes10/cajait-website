@@ -1180,3 +1180,107 @@ p {
         min-width: 44px;
     }
 }
+
+/* WhatsApp Button Styles */
+.whatsapp-float {
+    position: fixed;
+    width: 280px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    color: white;
+    text-decoration: none;
+}
+
+.whatsapp-float .whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #25D366;
+    font-size: 18px;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); }
+    50% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
+    100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); }
+}
+
+/* WhatsApp Integrated Buttons */
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    color: white;
+    text-decoration: none;
+}
+
+.whatsapp-btn .whatsapp-icon-small {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #25D366;
+    font-size: 12px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 240px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 14px;
+    }
+    
+    .whatsapp-float .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}
