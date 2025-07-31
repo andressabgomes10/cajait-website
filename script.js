@@ -138,7 +138,78 @@ document.getElementById('contactForm').addEventListener('submit', async function
     `;
 });
 
-// WhatsApp Float Button Management
+// Help Chat Widget Management
+document.addEventListener('DOMContentLoaded', function() {
+    const helpChatTrigger = document.getElementById('helpChatTrigger');
+    const helpChatMenu = document.getElementById('helpChatMenu');
+    const helpMenuClose = document.getElementById('helpMenuClose');
+    let isMenuOpen = false;
+    
+    // Toggle help menu
+    if (helpChatTrigger) {
+        helpChatTrigger.addEventListener('click', function() {
+            if (isMenuOpen) {
+                helpChatMenu.style.display = 'none';
+                isMenuOpen = false;
+            } else {
+                helpChatMenu.style.display = 'block';
+                isMenuOpen = true;
+            }
+        });
+    }
+    
+    // Close help menu
+    if (helpMenuClose) {
+        helpMenuClose.addEventListener('click', function() {
+            helpChatMenu.style.display = 'none';
+            isMenuOpen = false;
+        });
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (helpChatTrigger && helpChatMenu && 
+            !helpChatTrigger.contains(event.target) && 
+            !helpChatMenu.contains(event.target)) {
+            helpChatMenu.style.display = 'none';
+            isMenuOpen = false;
+        }
+    });
+    
+    // Auto-hide when scrolling near contact section
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const contactSection = document.getElementById('contato');
+        const helpWidget = document.querySelector('.help-chat-widget');
+        
+        if (contactSection && helpWidget) {
+            const contactPosition = contactSection.offsetTop;
+            const windowHeight = window.innerHeight;
+            
+            // Hide when near contact section to avoid overlap
+            if (scrollTop + windowHeight > contactPosition - 150) {
+                helpWidget.style.transform = 'translateY(100px)';
+                helpWidget.style.opacity = '0';
+                helpWidget.style.pointerEvents = 'none';
+            } else {
+                helpWidget.style.transform = 'translateY(0)';
+                helpWidget.style.opacity = '1';
+                helpWidget.style.pointerEvents = 'auto';
+            }
+        }
+    });
+    
+    // Add entrance animation after page load
+    setTimeout(() => {
+        const helpWidget = document.querySelector('.help-chat-widget');
+        if (helpWidget) {
+            helpWidget.style.transform = 'translateY(0)';
+            helpWidget.style.opacity = '1';
+        }
+    }, 2000);
+});
+
+// WhatsApp Float Button Management (Legacy - keeping for compatibility)
 document.addEventListener('DOMContentLoaded', function() {
     const whatsappFloat = document.getElementById('whatsappFloat');
     let isVisible = true;
@@ -148,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const contactSection = document.getElementById('contato');
         
-        if (contactSection) {
+        if (contactSection && whatsappFloat) {
             const contactPosition = contactSection.offsetTop;
             const windowHeight = window.innerHeight;
             
@@ -170,16 +241,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add click tracking
-    whatsappFloat.addEventListener('click', function() {
-        // Track WhatsApp button click (you can add analytics here)
-        console.log('WhatsApp button clicked');
-    });
-    
-    // Add entrance animation after page load
-    setTimeout(() => {
-        whatsappFloat.style.transform = 'translateY(0)';
-        whatsappFloat.style.opacity = '1';
-    }, 1500);
+    if (whatsappFloat) {
+        whatsappFloat.addEventListener('click', function() {
+            // Track WhatsApp button click (you can add analytics here)
+            console.log('WhatsApp button clicked');
+        });
+        
+        // Add entrance animation after page load
+        setTimeout(() => {
+            whatsappFloat.style.transform = 'translateY(0)';
+            whatsappFloat.style.opacity = '1';
+        }, 1500);
+    }
 });
 
 // Add scroll effect to header
