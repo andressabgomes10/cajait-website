@@ -1299,16 +1299,26 @@ p {
     font-weight: 500;
 }
 
-/* Help Chat Widget */
+/* Help Chat Widget - Fixed Version */
 .help-chat-widget {
     position: fixed;
     bottom: 25px;
     right: 25px;
     z-index: 1000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.help-chat-widget.loaded {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .help-chat-trigger {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 12px;
     background: linear-gradient(135deg, #FFD700, #E6C000);
@@ -1320,6 +1330,7 @@ p {
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.3);
     animation: helpPulse 3s infinite;
+    white-space: nowrap;
 }
 
 .help-chat-trigger:hover {
@@ -1348,12 +1359,13 @@ p {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    flex-shrink: 0;
 }
 
 .mascot-icon {
     width: 28px;
     height: 28px;
-    background-image: url('https://customer-assets.emergentagent.com/job_caja-tech-debug/artifacts/49584vmu_i%CC%81cone%20fundo%20branco.png');
+    background-image: url('https://customer-assets.emergentagent.com/job_caja-tech/artifacts/ab2iz7t6_i%CC%81cone%20fundo%20transparente.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1364,6 +1376,7 @@ p {
     font-size: 18px;
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    color: #3E2F08;
 }
 
 .help-chat-menu {
@@ -1379,6 +1392,10 @@ p {
     overflow: hidden;
     border: 1px solid #E5E7EB;
     animation: slideUp 0.4s ease-out;
+}
+
+.help-chat-menu.show {
+    display: block !important;
 }
 
 @keyframes slideUp {
@@ -1415,7 +1432,7 @@ p {
 .mascot-icon-large {
     width: 42px;
     height: 42px;
-    background-image: url('https://customer-assets.emergentagent.com/job_caja-tech-debug/artifacts/49584vmu_i%CC%81cone%20fundo%20branco.png');
+    background-image: url('https://customer-assets.emergentagent.com/job_caja-tech/artifacts/ab2iz7t6_i%CC%81cone%20fundo%20transparente.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1426,6 +1443,7 @@ p {
     margin-bottom: 8px;
     font-family: 'Gilda Display', serif;
     color: #3E2F08;
+    margin-top: 0;
 }
 
 .help-menu-header p {
@@ -1440,7 +1458,7 @@ p {
 }
 
 .help-option {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 16px;
     padding: 16px;
@@ -1460,6 +1478,10 @@ p {
     text-decoration: none;
 }
 
+.help-option:last-child {
+    margin-bottom: 0;
+}
+
 .help-option-icon {
     width: 40px;
     height: 40px;
@@ -1473,12 +1495,18 @@ p {
     flex-shrink: 0;
 }
 
+.help-option-content {
+    flex: 1;
+    min-width: 0;
+}
+
 .help-option-content h4 {
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin: 0 0 4px 0;
     color: #111827;
     font-family: 'Nunito Sans', sans-serif;
+    line-height: 1.2;
 }
 
 .help-option-content p {
