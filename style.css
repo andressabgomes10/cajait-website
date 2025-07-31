@@ -1604,19 +1604,20 @@ p {
 .about-advantages li:last-child {
     border-bottom: none;
 }
+/* WhatsApp Button Styles - Updated to match brand colors */
 .whatsapp-float {
     position: fixed;
     width: 300px;
     height: 65px;
     bottom: 25px;
     right: 25px;
-    background: linear-gradient(135deg, #25D366, #1ea952);
-    color: white;
+    background: linear-gradient(135deg, #FFD700, #E6C000);
+    color: #3E2F08;
     border-radius: 35px;
     text-align: center;
     font-size: 18px;
     font-weight: 700;
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
     z-index: 1000;
     text-decoration: none;
     display: flex;
@@ -1630,9 +1631,9 @@ p {
 
 .whatsapp-float:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
-    background: linear-gradient(135deg, #1ea952, #25D366);
-    color: white;
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+    background: linear-gradient(135deg, #E6C000, #D4AF00);
+    color: #3E2F08;
     text-decoration: none;
 }
 
@@ -1644,7 +1645,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #25D366;
+    color: #FFD700;
     font-size: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
@@ -1658,23 +1659,23 @@ p {
 
 @keyframes pulse {
     0% { 
-        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
         transform: scale(1);
     }
     50% { 
-        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.8);
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.8);
         transform: scale(1.02);
     }
     100% { 
-        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
         transform: scale(1);
     }
 }
 
 /* WhatsApp Integrated Buttons */
 .whatsapp-btn {
-    background: linear-gradient(135deg, #25D366, #1ea952);
-    color: white;
+    background: linear-gradient(135deg, #FFD700, #E6C000);
+    color: #3E2F08;
     padding: 16px 32px;
     border-radius: 30px;
     text-decoration: none;
@@ -1685,16 +1686,16 @@ p {
     font-size: 16px;
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
     cursor: pointer;
     font-family: 'Nunito Sans', sans-serif;
 }
 
 .whatsapp-btn:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
-    background: linear-gradient(135deg, #1ea952, #25D366);
-    color: white;
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, #E6C000, #D4AF00);
+    color: #3E2F08;
     text-decoration: none;
 }
 
@@ -1706,7 +1707,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #25D366;
+    color: #FFD700;
     font-size: 14px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
