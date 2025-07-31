@@ -51,7 +51,14 @@ document.getElementById('contactForm').addEventListener('submit', async function
     
     // Disable button and show loading state
     submitBtn.disabled = true;
-    submitText.textContent = 'Enviando...';
+    submitText.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
+            <path d="M21 12a9 9 0 11-6.219-8.56"/>
+        </svg>
+        Enviando...
+    `;
+    
+    // Hide previous messages
     formMessage.style.display = 'none';
     formMessage.className = 'form-message';
     
@@ -70,26 +77,39 @@ document.getElementById('contactForm').addEventListener('submit', async function
             // Success
             formMessage.className = 'form-message success';
             formMessage.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                     <polyline points="22,4 12,14.01 9,11.01"/>
                 </svg>
-                ${result.message}
+                <div>${result.message}</div>
             `;
             formMessage.style.display = 'flex';
             
-            // Reset form
-            this.reset();
+            // Reset form after a delay
+            setTimeout(() => {
+                this.reset();
+            }, 1000);
+            
+            // Auto-hide success message after 8 seconds
+            setTimeout(() => {
+                if (formMessage.classList.contains('success')) {
+                    formMessage.style.opacity = '0';
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                        formMessage.style.opacity = '1';
+                    }, 300);
+                }
+            }, 8000);
         } else {
             // Error
             formMessage.className = 'form-message error';
             formMessage.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"/>
-                    <line x1="15" y1="9" x2="9" y2="15"/>
-                    <line x1="9" y1="9" x2="15" y2="15"/>
+                    <path d="m15 9-6 6"/>
+                    <path d="m9 9 6 6"/>
                 </svg>
-                ${result.message}
+                <div>${result.message}</div>
             `;
             formMessage.style.display = 'flex';
         }
@@ -97,19 +117,25 @@ document.getElementById('contactForm').addEventListener('submit', async function
         // Network error
         formMessage.className = 'form-message error';
         formMessage.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"/>
-                <line x1="15" y1="9" x2="9" y2="15"/>
-                <line x1="9" y1="9" x2="15" y2="15"/>
+                <path d="m15 9-6 6"/>
+                <path d="m9 9 6 6"/>
             </svg>
-            Erro de conexão. Tente novamente.
+            <div>❌ Erro de conexão. Verifique sua internet e tente novamente.</div>
         `;
         formMessage.style.display = 'flex';
     }
     
     // Re-enable button
     submitBtn.disabled = false;
-    submitText.textContent = 'Enviar mensagem';
+    submitText.innerHTML = `
+        Enviar mensagem
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+        </svg>
+    `;
 });
 
 // Add scroll effect to header
