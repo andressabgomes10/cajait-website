@@ -1,0 +1,159 @@
+<!-- SOLUÇÃO RÁPIDA: Cole este código no final do seu index.html, antes de </body> -->
+
+<script>
+// Widget de Ajuda - Correção Inline Definitiva
+(function() {
+    console.log('🔧 Corrigindo widget de ajuda...');
+    
+    function fixWidget() {
+        const trigger = document.getElementById('helpChatTrigger');
+        const menu = document.getElementById('helpChatMenu');
+        const closeBtn = document.getElementById('helpMenuClose');
+        
+        if (!trigger || !menu) {
+            console.log('⚠️ Elementos não encontrados, tentando novamente...');
+            setTimeout(fixWidget, 1000);
+            return;
+        }
+        
+        console.log('✅ Elementos encontrados, aplicando correção...');
+        
+        // Forçar estilos inline para garantir funcionamento
+        const widget = document.getElementById('helpChatWidget');
+        if (widget) {
+            widget.style.cssText = `
+                position: fixed !important;
+                bottom: 25px !important;
+                right: 25px !important;
+                z-index: 99999 !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            `;
+        }
+        
+        trigger.style.cssText = `
+            display: flex !important;
+            align-items: center !important;
+            background: #FFD700 !important;
+            color: #3E2F08 !important;
+            padding: 15px 20px !important;
+            border-radius: 50px !important;
+            cursor: pointer !important;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5) !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            gap: 10px !important;
+        `;
+        
+        menu.style.cssText = `
+            position: absolute !important;
+            bottom: 70px !important;
+            right: 0 !important;
+            width: 300px !important;
+            background: white !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+            display: none !important;
+            overflow: hidden !important;
+            border: 1px solid #ddd !important;
+        `;
+        
+        let isOpen = false;
+        
+        // Remover listeners antigos e adicionar novos
+        const newTrigger = trigger.cloneNode(true);
+        trigger.parentNode.replaceChild(newTrigger, trigger);
+        
+        const newClose = menu.querySelector('#helpMenuClose');
+        if (newClose) {
+            const newCloseBtn = newClose.cloneNode(true);
+            newClose.parentNode.replaceChild(newCloseBtn, newClose);
+            
+            newCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                menu.style.display = 'none';
+                menu.classList.remove('show');
+                isOpen = false;
+                console.log('❌ Menu fechado pelo botão X');
+            });
+        }
+        
+        // Função principal de toggle
+        newTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('🖱️ Clique detectado no trigger');
+            
+            if (isOpen) {
+                menu.style.display = 'none';
+                menu.classList.remove('show');
+                isOpen = false;
+                console.log('❌ Menu fechado');
+            } else {
+                menu.style.display = 'block';
+                menu.classList.add('show');
+                isOpen = true;
+                console.log('✅ Menu aberto');
+            }
+        });
+        
+        // Click fora fecha
+        document.addEventListener('click', function(e) {
+            if (!newTrigger.contains(e.target) && !menu.contains(e.target) && isOpen) {
+                menu.style.display = 'none';
+                menu.classList.remove('show');
+                isOpen = false;
+                console.log('👆 Menu fechado - clique fora');
+            }
+        });
+        
+        // Link de contato
+        const contactLink = menu.querySelector('a[href="#contato"]');
+        if (contactLink) {
+            contactLink.addEventListener('click', function() {
+                menu.style.display = 'none';
+                menu.classList.remove('show');
+                isOpen = false;
+                console.log('📧 Menu fechado - link contato');
+            });
+        }
+        
+        console.log('🎉 Widget corrigido e funcionando!');
+    }
+    
+    // Iniciar correção
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fixWidget);
+    } else {
+        fixWidget();
+    }
+    
+    // Tentar novamente após 3 segundos se necessário
+    setTimeout(fixWidget, 3000);
+})();
+</script>
+
+<!-- Estilos adicionais para garantir funcionamento -->
+<style>
+.help-chat-menu.show {
+    display: block !important;
+    animation: slideUp 0.3s ease-out !important;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.help-chat-trigger:active {
+    transform: scale(0.95) !important;
+}
+</style>
