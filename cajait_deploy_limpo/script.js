@@ -138,100 +138,119 @@ document.getElementById('contactForm').addEventListener('submit', async function
     `;
 });
 
-// Help Chat Widget Management - Fixed Version
+// Help Chat Widget Management - Versão 100% Funcional
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Iniciando widget de ajuda...');
+    
     const helpChatWidget = document.getElementById('helpChatWidget');
     const helpChatTrigger = document.getElementById('helpChatTrigger');
     const helpChatMenu = document.getElementById('helpChatMenu');
     const helpMenuClose = document.getElementById('helpMenuClose');
+    
+    if (!helpChatWidget || !helpChatTrigger || !helpChatMenu) {
+        console.error('Elementos do widget não encontrados');
+        return;
+    }
+    
+    console.log('Widget elementos encontrados, inicializando...');
+    
+    // Mostrar o widget imediatamente
+    helpChatWidget.style.display = 'block';
+    helpChatWidget.style.visibility = 'visible';
+    helpChatWidget.style.opacity = '1';
+    
     let isMenuOpen = false;
     
-    // Initialize widget
-    if (helpChatWidget && helpChatTrigger && helpChatMenu) {
-        console.log('Help widget initialized successfully');
+    // Função para abrir menu
+    function openMenu() {
+        console.log('Abrindo menu...');
+        helpChatMenu.style.display = 'block';
+        helpChatMenu.classList.add('show');
+        isMenuOpen = true;
+    }
+    
+    // Função para fechar menu
+    function closeMenu() {
+        console.log('Fechando menu...');
+        helpChatMenu.style.display = 'none';
+        helpChatMenu.classList.remove('show');
+        isMenuOpen = false;
+    }
+    
+    // Event listener para o botão principal
+    helpChatTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Clique no trigger detectado');
         
-        // Add loaded class for entrance animation
-        setTimeout(() => {
-            helpChatWidget.classList.add('loaded');
-        }, 2000);
-        
-        // Toggle help menu
-        helpChatTrigger.addEventListener('click', function(e) {
+        if (isMenuOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Event listener para o botão de fechar
+    if (helpMenuClose) {
+        helpMenuClose.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            if (isMenuOpen) {
-                helpChatMenu.style.display = 'none';
-                helpChatMenu.classList.remove('show');
-                isMenuOpen = false;
-            } else {
-                helpChatMenu.style.display = 'block';
-                helpChatMenu.classList.add('show');
-                isMenuOpen = true;
-            }
+            console.log('Clique no close detectado');
+            closeMenu();
         });
-        
-        // Close help menu
-        if (helpMenuClose) {
-            helpMenuClose.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                helpChatMenu.style.display = 'none';
-                helpChatMenu.classList.remove('show');
-                isMenuOpen = false;
-            });
-        }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (helpChatWidget && !helpChatWidget.contains(event.target)) {
-                helpChatMenu.style.display = 'none';
-                helpChatMenu.classList.remove('show');
-                isMenuOpen = false;
-            }
-        });
-        
-        // Auto-hide when scrolling near contact section
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const contactSection = document.getElementById('contato');
-            
-            if (contactSection && helpChatWidget) {
-                const contactPosition = contactSection.offsetTop;
-                const windowHeight = window.innerHeight;
-                
-                // Hide when near contact section to avoid overlap
-                if (scrollTop + windowHeight > contactPosition - 150) {
-                    helpChatWidget.style.transform = 'translateY(100px)';
-                    helpChatWidget.style.opacity = '0';
-                    helpChatWidget.style.pointerEvents = 'none';
-                    if (isMenuOpen) {
-                        helpChatMenu.style.display = 'none';
-                        helpChatMenu.classList.remove('show');
-                        isMenuOpen = false;
-                    }
-                } else {
-                    if (helpChatWidget.classList.contains('loaded')) {
-                        helpChatWidget.style.transform = 'translateY(0)';
-                        helpChatWidget.style.opacity = '1';
-                        helpChatWidget.style.pointerEvents = 'auto';
-                    }
-                }
-            }
-        });
-        
-        // Handle contact form link click
-        const contactFormLink = helpChatMenu.querySelector('a[href="#contato"]');
-        if (contactFormLink) {
-            contactFormLink.addEventListener('click', function() {
-                helpChatMenu.style.display = 'none';
-                helpChatMenu.classList.remove('show');
-                isMenuOpen = false;
-            });
-        }
-    } else {
-        console.error('Help widget elements not found');
     }
+    
+    // Fechar menu quando clicar fora
+    document.addEventListener('click', function(event) {
+        if (!helpChatWidget.contains(event.target) && isMenuOpen) {
+            console.log('Clique fora detectado, fechando menu');
+            closeMenu();
+        }
+    });
+    
+    // Event listener para link de contato
+    const contactFormLink = helpChatMenu.querySelector('a[href="#contato"]');
+    if (contactFormLink) {
+        contactFormLink.addEventListener('click', function() {
+            console.log('Link de contato clicado');
+            closeMenu();
+        });
+    }
+    
+    // Controle de scroll - esconder perto da seção de contato
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const contactSection = document.getElementById('contato');
+        
+        if (contactSection) {
+            const contactPosition = contactSection.offsetTop;
+            const windowHeight = window.innerHeight;
+            
+            // Esconder quando próximo à seção de contato
+            if (scrollTop + windowHeight > contactPosition - 100) {
+                helpChatWidget.style.transform = 'translateY(100px)';
+                helpChatWidget.style.opacity = '0';
+                if (isMenuOpen) {
+                    closeMenu();
+                }
+            } else {
+                helpChatWidget.style.transform = 'translateY(0)';
+                helpChatWidget.style.opacity = '1';
+            }
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+    
+    // Entrada animada após carregamento
+    setTimeout(() => {
+        helpChatWidget.style.transform = 'translateY(0)';
+        helpChatWidget.style.opacity = '1';
+        console.log('Widget animação de entrada concluída');
+    }, 1500);
+    
+    console.log('Widget de ajuda inicializado com sucesso!');
 });
 
 // WhatsApp Float Button Management (Legacy - keeping for compatibility)
