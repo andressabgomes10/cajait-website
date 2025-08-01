@@ -1529,94 +1529,95 @@ p {
     transform: scale(1.1) !important;
 }
 
-/* Mobile Responsiveness for Help Widget - Fixed */
+/* Mobile Responsiveness for Help Widget - Versão Corrigida */
 @media (max-width: 768px) {
     .help-chat-widget {
-        bottom: 20px;
-        right: 20px;
+        bottom: 20px !important;
+        right: 20px !important;
     }
     
     .help-chat-trigger {
-        padding: 14px 20px;
-        gap: 10px;
+        padding: 14px 20px !important;
+        gap: 10px !important;
     }
     
     .help-mascot {
-        width: 36px;
-        height: 36px;
+        width: 36px !important;
+        height: 36px !important;
     }
     
     .mascot-icon {
-        width: 24px;
-        height: 24px;
+        width: 24px !important;
+        height: 24px !important;
     }
     
     .help-text {
-        font-size: 16px;
+        font-size: 16px !important;
     }
     
     .help-chat-menu {
-        width: 280px;
-        bottom: 70px;
-        right: -10px;
+        width: 280px !important;
+        bottom: 70px !important;
+        right: -10px !important;
     }
     
     .help-menu-header {
-        padding: 20px;
+        padding: 20px !important;
     }
     
     .help-option {
-        padding: 12px;
-        gap: 12px;
+        padding: 12px !important;
+        gap: 12px !important;
     }
     
     .help-option-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 18px !important;
     }
 }
 
 @media (max-width: 480px) {
     .help-chat-widget {
-        bottom: 15px;
-        right: 15px;
+        bottom: 15px !important;
+        right: 15px !important;
     }
     
     .help-chat-trigger {
-        padding: 12px 18px;
-        gap: 8px;
+        padding: 12px 18px !important;
+        gap: 8px !important;
     }
     
     .help-text {
-        font-size: 15px;
+        font-size: 15px !important;
     }
     
     .help-chat-menu {
-        width: calc(100vw - 30px);
-        right: -230px;
-        bottom: 65px;
+        width: calc(100vw - 30px) !important;
+        right: -230px !important;
+        bottom: 65px !important;
+        max-width: 300px !important;
     }
     
     .help-menu-header {
-        padding: 18px;
+        padding: 18px !important;
     }
     
     .help-menu-header h3 {
-        font-size: 1.3rem;
+        font-size: 1.3rem !important;
     }
     
     .help-option {
-        padding: 10px;
-        gap: 10px;
+        padding: 10px !important;
+        gap: 10px !important;
     }
     
     .help-option-content h4 {
-        font-size: 0.9rem;
+        font-size: 0.9rem !important;
     }
     
     .help-option-content p {
-        font-size: 0.8rem;
+        font-size: 0.8rem !important;
     }
 }
 
