@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Cajá - Teste</title>
+    <style>
+        /* Widget de Ajuda - Versão Ultra Simples e Funcional */
+        .help-chat-widget {
+            position: fixed !important;
+            bottom: 25px !important;
+            right: 25px !important;
+            z-index: 99999 !important;
+            font-family: Arial, sans-serif !important;
+        }
+
+        .help-chat-trigger {
+            display: flex !important;
+            align-items: center !important;
+            background: #FFD700 !important;
+            color: #3E2F08 !important;
+            padding: 15px 20px !important;
+            border-radius: 50px !important;
+            cursor: pointer !important;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5) !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            border: none !important;
+            outline: none !important;
+            text-decoration: none !important;
+            gap: 10px !important;
+        }
+
+        .help-chat-trigger:hover {
+            background: #E6C000 !important;
+            transform: scale(1.05) !important;
+        }
+
+        .help-mascot {
+            width: 30px !important;
+            height: 30px !important;
+            background: white !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 20px !important;
+        }
+
+        .help-text {
+            color: #3E2F08 !important;
+            font-weight: bold !important;
+        }
+
+        .help-chat-menu {
+            position: absolute !important;
+            bottom: 70px !important;
+            right: 0 !important;
+            width: 300px !important;
+            background: white !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+            display: none !important;
+            overflow: hidden !important;
+            border: 1px solid #ddd !important;
+        }
+
+        .help-chat-menu.show {
+            display: block !important;
+        }
+
+        .help-menu-header {
+            background: #FFD700 !important;
+            color: #3E2F08 !important;
+            padding: 20px !important;
+            text-align: center !important;
+            position: relative !important;
+        }
+
+        .help-menu-header h3 {
+            margin: 0 0 10px 0 !important;
+            font-size: 18px !important;
+        }
+
+        .help-menu-header p {
+            margin: 0 !important;
+            font-size: 14px !important;
+            opacity: 0.8 !important;
+        }
+
+        .help-menu-options {
+            padding: 15px !important;
+        }
+
+        .help-option {
+            display: flex !important;
+            align-items: center !important;
+            padding: 12px !important;
+            border-radius: 8px !important;
+            text-decoration: none !important;
+            color: #333 !important;
+            margin-bottom: 8px !important;
+            border: 1px solid #eee !important;
+            gap: 12px !important;
+        }
+
+        .help-option:hover {
+            background: #f9f9f9 !important;
+            border-color: #FFD700 !important;
+            text-decoration: none !important;
+        }
+
+        .help-option-icon {
+            width: 35px !important;
+            height: 35px !important;
+            background: #FFD700 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 18px !important;
+        }
+
+        .help-option-content h4 {
+            margin: 0 0 2px 0 !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+        }
+
+        .help-option-content p {
+            margin: 0 !important;
+            font-size: 12px !important;
+            color: #666 !important;
+        }
+
+        .help-menu-close {
+            position: absolute !important;
+            top: 10px !important;
+            right: 10px !important;
+            background: rgba(0,0,0,0.1) !important;
+            border: none !important;
+            border-radius: 50% !important;
+            width: 25px !important;
+            height: 25px !important;
+            cursor: pointer !important;
+            font-size: 16px !important;
+            color: #3E2F08 !important;
+        }
+
+        .help-menu-close:hover {
+            background: rgba(0,0,0,0.2) !important;
+        }
+
+        /* Estilo da página de teste */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            height: 100vh;
+        }
+        
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>🧪 Teste do Widget Cajá</h1>
+        <p>Esta página testa o widget flutuante "Ajuda?" da Cajá.</p>
+        <p><strong>Instruções:</strong></p>
+        <ol>
+            <li>Olhe no canto inferior direito da tela</li>
+            <li>Clique no botão dourado "Ajuda?"</li>
+            <li>O menu deve abrir com 3 opções</li>
+            <li>Teste os links do menu</li>
+        </ol>
+        
+        <p>Se o widget funcionar aqui, é porque há um conflito no seu site atual.</p>
+    </div>
+
+    <!-- Widget de Ajuda -->
+    <div class="help-chat-widget" id="helpChatWidget">
+        <div class="help-chat-trigger" id="helpChatTrigger">
+            <div class="help-mascot">🥭</div>
+            <span class="help-text">Ajuda?</span>
+        </div>
+        
+        <div class="help-chat-menu" id="helpChatMenu">
+            <div class="help-menu-header">
+                <h3>Como posso ajudar?</h3>
+                <p>Escolha uma das opções abaixo:</p>
+            </div>
+            
+            <div class="help-menu-options">
+                <a href="https://wa.me/5585992176713?text=Olá!%20Vim%20do%20site%20da%20Cajá%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" class="help-option">
+                    <div class="help-option-icon">💬</div>
+                    <div class="help-option-content">
+                        <h4>Conversar no WhatsApp</h4>
+                        <p>Fale diretamente conosco</p>
+                    </div>
+                </a>
+                
+                <a href="#contato" class="help-option">
+                    <div class="help-option-icon">📧</div>
+                    <div class="help-option-content">
+                        <h4>Enviar mensagem</h4>
+                        <p>Use nosso formulário de contato</p>
+                    </div>
+                </a>
+                
+                <a href="tel:+5585992176713" class="help-option">
+                    <div class="help-option-icon">📞</div>
+                    <div class="help-option-content">
+                        <h4>Ligar agora</h4>
+                        <p>(85) 99217-6713</p>
+                    </div>
+                </a>
+            </div>
+            
+            <button class="help-menu-close" id="helpMenuClose">×</button>
+        </div>
+    </div>
+
+    <script>
+        // Widget de Ajuda - JavaScript Ultra Simples e Funcional
+        (function() {
+            console.log('Carregando widget de ajuda...');
+            
+            // Aguardar DOM carregar
+            function initWidget() {
+                const trigger = document.getElementById('helpChatTrigger');
+                const menu = document.getElementById('helpChatMenu');
+                const closeBtn = document.getElementById('helpMenuClose');
+                
+                if (!trigger || !menu) {
+                    console.log('Elementos não encontrados, tentando novamente...');
+                    setTimeout(initWidget, 500);
+                    return;
+                }
+                
+                console.log('Widget elementos encontrados!');
+                
+                let isOpen = false;
+                
+                // Função para abrir menu
+                function openMenu() {
+                    menu.classList.add('show');
+                    menu.style.display = 'block';
+                    isOpen = true;
+                    console.log('Menu aberto');
+                }
+                
+                // Função para fechar menu
+                function closeMenu() {
+                    menu.classList.remove('show');
+                    menu.style.display = 'none';
+                    isOpen = false;
+                    console.log('Menu fechado');
+                }
+                
+                // Click no trigger
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Clique no trigger detectado');
+                    
+                    if (isOpen) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                });
+                
+                // Click no botão fechar
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Clique no close detectado');
+                        closeMenu();
+                    });
+                }
+                
+                // Click fora fecha
+                document.addEventListener('click', function(e) {
+                    if (!trigger.contains(e.target) && !menu.contains(e.target) && isOpen) {
+                        console.log('Clique fora detectado');
+                        closeMenu();
+                    }
+                });
+                
+                // Link de contato
+                const contactLink = menu.querySelector('a[href="#contato"]');
+                if (contactLink) {
+                    contactLink.addEventListener('click', function() {
+                        closeMenu();
+                    });
+                }
+                
+                console.log('Widget de ajuda inicializado com sucesso!');
+            }
+            
+            // Iniciar quando DOM estiver pronto
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initWidget);
+            } else {
+                initWidget();
+            }
+        })();
+    </script>
+</body>
+</html>
